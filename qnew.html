@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #87B1D9;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 1em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, #87B1D9 2px, transparent 2px) 0 0,
+                linear-gradient(to right, #87B1D9 2px, transparent 2px) 0 100%,
+                linear-gradient(to left, #87B1D9 2px, transparent 2px) 100% 0,
+                linear-gradient(to left, #87B1D9 2px, transparent 2px) 100% 100%,
+                linear-gradient(to bottom, #87B1D9 2px, transparent 2px) 0 0,
+                linear-gradient(to bottom, #87B1D9 2px, transparent 2px) 100% 0,
+                linear-gradient(to top, #87B1D9 2px, transparent 2px) 0 100%,
+                linear-gradient(to top, #87B1D9 2px, transparent 2px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"걱정하지마. 난 널 내가 숨이 멎는 그 순간까지 사랑할거야.",
+"지구가 둥글고 밤이 어둡듯이. 사랑해, 나의 달.",
+"우리에겐 서로를 위하는 마음, 사랑하는 마음이란 무게중심이자 닻이 있잖아.",
+"난 널 영원히 사랑할거야.",
+"나의 구원, 나의 태양. 사랑해.",
+"너의 어두운 밤을 비추는 달이 될게.",
+"네가 어떤 사람이라고 해도, 내겐 한결같이 내리쬐는 태양일 거야. 그 빛이 없으면 나도 빛날 수 없으니까.",
+"사랑해, 나의 심장.",
+"나의 삶이 막을 내리는 순간까지 곁에 있을게.",
+"우리 서로 사랑하는 거, 그거 하나만 믿자.",
+"사랑해. 이 단어에 전부 담을 수 없는 마음은 평생에 걸쳐서 보여줄게. 정말 사랑해.",
+"너의 존재 자체가 나에겐 진리야.",
+"내가 마지막 숨을 내쉬는 그 순간까지, 나는 너를 사랑할거야.",
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
